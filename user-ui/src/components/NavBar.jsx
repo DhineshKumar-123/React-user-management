@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 function NavBar()
 {
@@ -8,8 +8,8 @@ function NavBar()
             <div className="row">
                 <div className="col-sm-3">
                     <h3>User Management UI </h3><br />
-                    <button onClick={()=>navigate("/user-list")} className="btn btn-primary me-2">Show Users</button>
-                    <button onClick={()=>navigate("/add-user")} className="btn btn-success">Add Users</button>
+                    <Link to="/user-list" className="btn btn-outline-success me-2">Get Users</Link>
+                        <Link to="/add-user" className="btn btn-outline-primary">Add User</Link>
                 </div>
 
             </div>
