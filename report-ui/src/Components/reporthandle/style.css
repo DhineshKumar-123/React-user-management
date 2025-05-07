@@ -1,0 +1,1003 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --primary-color: #2c3855;
+  --primary-color-dark: #435681;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --extra-light: #f3f4f6;
+  --white: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 5rem 1rem;
+}
+.login-btn {
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.section__header {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  display: flex;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.popular__card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.popular__card img {
+  width: 100%;
+  border-radius: 10px; /* Default border radius */
+  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.popular__card:hover img {
+  transform: scale(1.2); /* Enlarges the image */
+  border-radius: 50%; /* Makes it circular */
+}
+.popular__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.popular__card img {
+  width: 100%;
+  border-radius: 10px; /* Normal state */
+  transition: transform 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.popular__card:hover img {
+  transform: scale(1.5) translateY(-20px); /* Enlarges and moves up */
+  border-radius: 50%; /* Circular shape */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  z-index: 10; /* Ensures it appears on top */
+}
+
+nav {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #001f3f, #005f99, #0088cc);
+  box-shadow: 0px 4px 15px rgba(0, 153, 255, 0.4);
+  border-radius: 12px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.nav__logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s infinite linear;
+  text-shadow: 0px 0px 15px rgba(0, 153, 255, 0.6);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px;
+  }
+  100% {
+    background-position: 200px;
+  }
+}
+
+/* NAVIGATION LINKS WITH FLOATING ANIMATION */
+.nav__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.link a {
+  font-weight: 700;
+  color: #d1eaff;
+  text-decoration: none;
+  position: relative;
+  padding: 0.8rem 1.5rem;
+  transition: color 0.4s ease-in-out, transform 0.3s ease-in-out;
+  font-size: 1.2rem;
+  display: inline-block;
+  overflow: hidden;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* FLOATING NAV LINKS ANIMATION */
+.link {
+  animation: float 4s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* 3D TILT EFFECT ON HOVER */
+.link a:hover {
+  color: #00c6ff;
+  text-shadow: 0px 0px 20px #00c6ff, 0px 0px 40px #0072ff;
+  transform: scale(1.15) rotateX(10deg) rotateY(10deg);
+}
+
+/* GLITCHY UNDERLINE EFFECT */
+.link a::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  transition: width 0.4s ease-in-out, left 0.4s ease-in-out;
+  box-shadow: 0px 0px 15px #00c6ff;
+}
+
+.link a:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+/* FIREWORK SPARKLE BURST EFFECT */
+.link a::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #00c6ff, #0072ff, transparent);
+  border-radius: 50%;
+  top: -10px;
+  left: 50%;
+  opacity: 0;
+  animation: firework 0.6s ease-out infinite;
+}
+
+@keyframes firework {
+  0% { transform: scale(0.5); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* GRADIENT GLOW BELOW NAVBAR */
+.nav__links::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  bottom: -12px;
+  left: 0;
+  background: linear-gradient(90deg, rgba(0, 198, 255, 0.2), rgba(0, 114, 255, 0.4), rgba(0, 198, 255, 0.2));
+  filter: blur(10px);
+}
+
+
+/* HEADER CONTAINER */
+.header__container {
+  padding: 1rem 1rem 1rem 1rem;
+  min-height: 700px;
+}
+
+/* HEADER IMAGE CONTAINER WITH SHIMMER & PARALLAX EFFECT */
+.header__image__container {
+  position: relative;
+  min-height: 500px;
+  background-image: linear-gradient(
+      to right,
+      rgba(44, 56, 85, 0.9),
+      rgba(100, 125, 187, 0.1)
+    ),
+    url("images/hotel7.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 2rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 255, 0.5);
+  overflow: hidden;
+  animation: shimmer 8s infinite alternate ease-in-out;
+}
+
+/* Background shimmer effect */
+@keyframes shimmer {
+  0% { background-position: center center; }
+  50% { background-position: 0% 30%; }
+  100% { background-position: center center; }
+}
+
+/* HEADER CONTENT */
+.header__content {
+  max-width: 600px;
+  padding: 5rem 2rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADER TITLE WITH GLOW */
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 3.8rem;
+  line-height: 4.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0px 0px 15px rgba(0, 198, 255, 0.8);
+  animation: glow 3s infinite alternate ease-in-out;
+}
+
+/* Glowing animation */
+@keyframes glow {
+  0% { text-shadow: 0px 0px 15px rgba(0, 198, 255, 0.8); }
+  100% { text-shadow: 0px 0px 25px rgba(0, 132, 255, 1); }
+}
+
+/* PARAGRAPH TEXT STYLE */
+.header__content p {
+  color: #d1eaff;
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+/* BOOK NOW BUTTON WITH NEON GLOW */
+.book__btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 1px 1px;
+  background: linear-gradient(45deg, #ff5733, #ff8c42);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0px 0px 15px rgba(255, 87, 51, 0.6);
+}
+
+.book__btn:hover {
+  background: linear-gradient(45deg, #d9451b, #ff5733);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 20px rgba(255, 87, 51, 1);
+}
+
+/* BOOKING FORM WITH GLASSY BLUR EFFECT */
+.booking__container {
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  animation: float 5s infinite ease-in-out;
+  z-index: 10;
+  position: relative;
+  align-items: center; /* Ensures button and inputs are aligned */
+  gap: 12px; /* Adds spacing */
+ padding: 2px;  
+ border-radius: 10px;
+ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+ width: fit-content;
+}
+
+/* Floating effect */
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+/* BOOKING FORM GRID */
+.booking__container form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* INPUT FIELD GROUP */
+.booking__container .input__group {
+  position: relative;
+  width: 100%;
+}
+
+/* INPUT FIELD EFFECT */
+/* LABEL STYLING - More Interactive & Professional */
+.booking__container label {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  font-size: 1.2rem; /* Smaller initially */
+  font-weight: 600;
+  color: #085ab8; /* Professional blue */
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Label pops up when hovering or focusing */
+.booking__container input:focus ~ label,
+.booking__container input:hover ~ label,
+.booking__container input:not(:placeholder-shown) ~ label {
+  top: -8px; /* Moves label up */
+  font-size: 1.4rem; /* Slightly bigger */
+  color: linear-gradient(45deg, #0fafe0, #0072ff); /* Gradient effect */
+  opacity: 1;
+  letter-spacing: 1px; /* Adds spacing */
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  transform: translateY(-10%) scale(1.1); /* Smooth zoom effect */
+}
+
+/* INPUT FIELD STYLING - Clean & Elegant */
+.booking__container input {
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 1.2rem;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid #666;
+  color: black;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Border & Background Effect on Hover & Focus */
+.booking__container input:focus,
+.booking__container input:hover {
+  border-bottom: 2px solid #0072ff;
+  box-shadow: 0px 4px 12px rgba(0, 114, 255, 0.3); /* Subtle blue glow */
+  background: rgba(255, 255, 255, 0.9); /* Brightens slightly */
+  transition: all 0.3s ease-in-out;
+}
+
+
+
+
+/* BOOKING BUTTON WITH RIPPLE & POP EFFECT */
+.booking__container .btn {
+  padding: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--white);
+  background: linear-gradient(45deg, #0072ff, #00c6ff);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 20px rgba(0, 198, 255, 0.7);
+}
+
+.booking__container .btn:hover {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(0, 198, 255, 1);
+}
+
+/* Ripple effect */
+.booking__container .btn::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: ripple 0.6s infinite linear;
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+
+
+/* Popular Hotels Section */
+.section__header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #03396c; /* Deep Blue */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  position: relative;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Underline Effect */
+.section__header::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #03396c, #005b96);
+  display: block;
+  margin: 8px auto 0;
+  border-radius: 5px;
+}
+
+/* Popular Grid Layout */
+.popular__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 hotels per row */
+  gap: 1.5rem;
+  padding: 1rem;
+  justify-content: center;
+}
+
+/* Hotel Card */
+.popular__card {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 15px rgba(3, 57, 108, 0.2); /* Soft shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  background: #ffffff;
+  position: relative;
+}
+
+/* Hover Effect - Elevate */
+.popular__card:hover {
+  transform: translateY(-5px); /* Subtle lift */
+  box-shadow: 0px 10px 20px rgba(3, 57, 108, 0.3);
+}
+
+/* Image Styling */
+.popular__card img {
+  width: 100%;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  transition: transform 0.4s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Image Zoom & Fade Effect */
+.popular__card:hover img {
+  transform: scale(1.05); /* Slight zoom */
+  opacity: 0.9;
+}
+
+/* Card Content */
+.popular__content {
+  padding: 1.2rem;
+  background: #f5f5f5; /* Soft background */
+  color: #03396c;
+  text-align: center;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+/* Hotel Name & Price */
+.popular__card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.popular__card__header h4 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #03396c;
+}
+
+/* Location Text */
+.popular__content p {
+  color: #666;
+  font-size: 1rem;
+}
+
+/* Book Now Button */
+.book__btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+  background: #005b96; /* Deep blue */
+  border-radius: 20px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+/* Button Hover - Grow Effect */
+.book__btn:hover {
+  background: #03396c;
+  transform: scale(1.05);
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Client Section */
+.client {
+  background: linear-gradient(to right, #e0f7ff, #ffffff); /* Soft blue gradient */
+  padding: 5rem 0;
+}
+
+/* Grid Layout */
+.client__grid {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 testimonials per row */
+  gap: 1.5rem;
+}
+
+/* Client Card */
+.client__card {
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 15px rgba(3, 57, 108, 0.2); /* Soft blue shadow */
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover Effect */
+.client__card:hover {
+  transform: translateY(-8px); /* Elevate slightly */
+  box-shadow: 0px 10px 25px rgba(3, 57, 108, 0.3);
+}
+
+/* Animated Floating Effect */
+.client__card::before {
+  content: "★";
+  font-size: 5rem;
+  color: rgba(255, 223, 0, 0.2); /* Soft yellow star */
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  transform: rotate(-20deg);
+}
+
+/* Profile Image */
+.client__card img {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  border: 3px solid #005b96; /* Blue border */
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Image Hover Effect */
+.client__card:hover img {
+  transform: scale(1.1); /* Slight zoom */
+}
+
+/* Review Text */
+.client__card p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #03396c;
+  line-height: 1.5;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.client__card:hover p {
+  color: #005b96;
+}
+
+/* Client Name */
+.client__name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  color: #005b96;
+}
+
+/* Star Ratings */
+.client__stars {
+  color: #ffd700; /* Gold stars */
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+}
+
+/* Fade-in Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation */
+.client__card {
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+/* 🌟 Reward Container - Professional Look */
+.reward__container {
+  padding: 3rem;
+  text-align: center;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, rgba(0, 90, 160, 0.9), rgba(0, 162, 255, 0.9));
+  box-shadow: 0px 8px 35px rgba(0, 90, 160, 0.3);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+/* Smooth Floating Effect on Hover */
+.reward__container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 15px 40px rgba(0, 90, 160, 0.5);
+}
+
+/* ✨ Soft Glow Effect */
+.reward__container::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  top: -20px;
+  right: -20px;
+  opacity: 0.7;
+  filter: blur(30px);
+  animation: glowMove 6s infinite linear;
+}
+
+/* Animated Glow Movement */
+@keyframes glowMove {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 🌟 Reward Headline - Stylish Font */
+.reward__container h4 {
+  max-width: 600px;
+  margin: auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 12px rgba(255, 255, 255, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+/* Change Color on Hover */
+.reward__container:hover h4 {
+  color: #f8d210;
+  transform: scale(1.05);
+}
+
+/* 🌟 Reward Description */
+.reward__container p {
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  color: #e3f2fd;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change Text Color on Hover */
+.reward__container:hover p {
+  color: #ffffff;
+}
+
+/* 🔥 Stylish Register Button */
+.reward__btn {
+  padding: 1.2rem 3.5rem;
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(45deg, #fdd835, #ff9800);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 5px 20px rgba(253, 216, 53, 0.6);
+}
+
+/* 🌟 Button Hover Effect */
+.reward__btn:hover {
+  background: linear-gradient(45deg, #ff9800, #fdd835);
+  transform: scale(1.08);
+  box-shadow: 0px 8px 30px rgba(253, 216, 53, 0.8);
+}
+
+/* 🎉 Button Click Animation */
+.reward__btn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 3px 15px rgba(253, 216, 53, 0.5);
+}
+
+/* ✨ Light Reflection Effect */
+.reward__btn::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.4s ease-in-out;
+}
+
+/* Glow Effect on Hover */
+.reward__btn:hover::before {
+  top: 0;
+  left: 0;
+}
+
+
+.footer {
+  background-color: var(--extra-light);
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 2fr repeat(3, 1fr);
+  gap: 5rem;
+}
+
+.footer__col h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer__col h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.footer__col p {
+  margin-bottom: 1rem;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.footer__col p:hover {
+  color: var(--text-dark);
+}
+
+.footer__bar {
+  position: relative;
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-align: right;
+  overflow: hidden;
+}
+
+.footer__bar::before {
+  position: absolute;
+  content: "";
+  top: 50%;
+  right: 28rem;
+  transform: translateY(-50%);
+  width: 20rem;
+  height: 2px;
+  background-color: var(--text-light);
+}
+
+@media (width < 900px) {
+  .booking__container form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .popular__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .client__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width < 600px) {
+  .nav__links {
+    display: none;
+  }
+
+  .header__container {
+    padding-bottom: 25rem;
+  }
+
+  .booking__container {
+    flex-direction: column;
+    bottom: -25rem;
+  }
+
+  .booking__container form {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .popular__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .client__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .footer__container {
+    gap: 2rem;
+  }
+  .profile-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .profile-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .profile-modal {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #666;
+  }
+  
+  .edit-profile input,
+  .edit-profile textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .save-btn,
+  .edit-btn {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .save-btn:hover,
+  .edit-btn:hover {
+    background-color: #43a047;
+  }
+  
+  
+}
